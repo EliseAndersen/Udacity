@@ -20,9 +20,8 @@ function makeGrid() {
     	for (let z = 0; z < width; z++) {
     		let cell = document.createElement('td')
       		row.appendChild(cell)
-    	}
+    		}
   	}
-
 }
 
 
