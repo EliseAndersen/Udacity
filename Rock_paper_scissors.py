@@ -31,10 +31,10 @@ class ReflectPlayer(Player):
     def __init__(self):
 
         Player.__init__(self)
-        self.learn_move = None
+        self.learn_move = moves()
 
     def move(self):
-        if self.learn_move is None:
+        if self.learn_move is moves():
             throw = moves[0]                      # First move is always rock
         else:
             throw = self.learn_move               # next move is humanplayers
