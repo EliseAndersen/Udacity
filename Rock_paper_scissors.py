@@ -132,17 +132,17 @@ class Game():
             print(f"Opponent played {move2}")
             if beats(move1, move2):
                 print ("** YOU WIN ! **")
-                print(f"Score: Player 1: {move1}  Player 2: {move2}\n\n")
+                print(f"SCORE: You: {self.p1.score} / Opponent: {self.p2.score}\n\n")
                 self.p1.score += 1
                 return 1
             elif beats(move2, move1):
                 print ("** YOU LOSE ! **")
-                print(f"Score: Player 1: {move1}  Player 2: {move2}\n\n")
+                print(f"SCORE: You: {self.p1.score} / Opponent: {self.p2.score}\n\n")
                 self.p2.score += 1
                 return 2
             else:
                 print ("** It's A TIE **")
-                print(f"Score: Player 1: {move1}  Player 2: {move2}\n\n")
+                print(f"SCORE: You: {self.p1.score} / Opponent: {self.p2.score}\n\n")
                 return 0
 # This class calls the beats functions
 
