@@ -93,12 +93,12 @@ class Game():
             print (f"Round {round}:")
             self.play_round()
         if self.p1.score > self.p2.score:
-            print('Player 1 won!')
+            print('Player01 won!')
         elif self.p1.score < self.p2.score:
-            print('Player 2 won!')
+            print('Player02 won!')
         else:
             print('The game was a tie!')
-        print('The final score ' + str(self.p1.score) + ' TO ' +
+        print('The final score: Player01 has ' + str(self.p1.score) + ' while Player02 has ' +
               str(self.p2.score))
 # This class starts the game prints information and calls the playround class
 # Also prints out the final score
@@ -108,12 +108,12 @@ class Game():
         print (f"Round 1 of 1:")
         self.play_round()
         if self.p1.score > self.p2.score:
-            print('Player 1 won!')
+            print('Player01 won!')
         elif self.p1.score < self.p2.score:
-            print('Player 2 won!')
+            print('Player02 won!')
         else:
             print('The game was a tie!')
-        print('The final score ' + str(self.p1.score) + ' TO ' +
+        print('The final score: Player01 has ' + str(self.p1.score) + ' while Player02 has ' +
               str(self.p2.score))
 # This class will play a single round of RPS
 # A copy of play_game w/o for loop
@@ -128,22 +128,30 @@ class Game():
 # then sets the result variable. Plus stores the players move
 
     def play(self, move1, move2):
-            print(f"You played {move1}")
-            print(f"Opponent played {move2}")
+            print(f"Player01 played {move1}")
+            print(f"Player02 played {move2}")
+            
             if beats(move1, move2):
                 print ("** YOU WIN ! **")
-                print(f"SCORE: You: {self.p1.score} / Opponent: {self.p2.score}\n\n")
                 self.p1.score += 1
+                print(f"Player01 wins this round!")
+                print('The score: Player01 has ' + str(self.p1.score) + ' while Player02 has ' + str(self.p2.score) + '\n')
                 return 1
+                
+                
             elif beats(move2, move1):
                 print ("** YOU LOSE ! **")
-                print(f"SCORE: You: {self.p1.score} / Opponent: {self.p2.score}\n\n")
                 self.p2.score += 1
+                print(f"Player 2 wins this round!")
+                print('The score: Player01 has ' + str(self.p1.score) + ' while Player02 has ' + str(self.p2.score) + '\n')
                 return 2
+
             else:
                 print ("** It's A TIE **")
-                print(f"SCORE: You: {self.p1.score} / Opponent: {self.p2.score}\n\n")
-                return 0
+                print('The score: Player01 has ' + str(self.p1.score) + ' while Player02 has ' + str(self.p2.score) + '\n')
+                return 0   
+                
+   
 # This class calls the beats functions
 
 
