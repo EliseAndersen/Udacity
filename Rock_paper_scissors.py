@@ -6,20 +6,18 @@ moves = ['rock', 'paper', 'scissors']
 class Player():
 
     def __init__(self):
-
         self.score = 0
 
     def move(self):
-
         return moves[0]
 
     def learn(self, learn_move):
-
         pass
 # Parent Player class
 
 
 class RandomPlayer(Player):
+
     def move(self):
         throw = random.choice(moves)
         return (throw)
@@ -31,10 +29,10 @@ class ReflectPlayer(Player):
     def __init__(self):
 
         Player.__init__(self)
-        self.learn_move = moves()
+        self.learn_move = random.choice(moves)
 
     def move(self):
-        if self.learn_move is moves():
+        if self.learn_move is None:
             throw = moves[0]                      # First move is always rock
         else:
             throw = self.learn_move               # next move is humanplayers
@@ -133,12 +131,12 @@ class Game():
             print(f"You played {move1}")
             print(f"Opponent played {move2}")
             if beats(move1, move2):
-                print ("** PLAYER ONE WINS **")
+                print ("** YOU WIN ! **")
                 print(f"Score: Player 1: {move1}  Player 2: {move2}\n\n")
                 self.p1.score += 1
                 return 1
             elif beats(move2, move1):
-                print ("** PLAYER TWO WINS **")
+                print ("** YOU LOSE ! **")
                 print(f"Score: Player 1: {move1}  Player 2: {move2}\n\n")
                 self.p2.score += 1
                 return 2
