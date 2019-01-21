@@ -52,17 +52,18 @@ class Cycles(Player):
         self.step = 0
 
     def move(self):
-        throw = None
-        if self.step == 0:
-            throw = moves[0]
-            self.step = self.step + 1
-        elif self.step == 1:
-            throw = moves[1]
-            self.step = self.step + 1
-        else:
-            throw = moves[2]
-            self.step = self.step + 1
-        return throw
+        while True:
+            throw = None
+            if self.step == 0:
+                throw = moves[0]
+                self.step = self.step + 1
+            elif self.step == 1:
+                throw = moves[1]
+                self.step = self.step + 1
+            else:
+                throw = moves[2]
+                self.step = self.step + 1
+            return throw
 # This Class cycles through the moves list starting at rock
 
 
@@ -80,6 +81,7 @@ class HumanPlayer(Player):
 # ask what the human play wanr to play and checks
 # if the input is correct
 
+
 class Game():
 
     def __init__(self, p2):
@@ -87,10 +89,9 @@ class Game():
         self.p2 = p2
 
     def play_game(self):
-
-        print("Rock Paper Scissors, Go!")
+        print("\nRock Paper Scissors, Go!\n")
         for round in range(3):
-            print (f"Round {round}:")
+            print(f"Round {round}:")
             self.play_round()
         if self.p1.score > self.p2.score:
             print('Player01 won!')
@@ -98,14 +99,14 @@ class Game():
             print('Player02 won!')
         else:
             print('The game was a tie!')
-        print('The final score: Player01 has ' + str(self.p1.score) + ' while Player02 has ' +
-              str(self.p2.score))
+        print('The final score: Player01 has ' + str(self.p1.score)
+              + ' while Player02 has ' + str(self.p2.score))
 # This class starts the game prints information and calls the playround class
 # Also prints out the final score
 
     def play_single(self):
         print("Rock Paper Scissors, Go!")
-        print (f"Round 1 of 1:")
+        print(f"Round 1 of 1:")
         self.play_round()
         if self.p1.score > self.p2.score:
             print('Player01 won!')
@@ -113,8 +114,8 @@ class Game():
             print('Player02 won!')
         else:
             print('The game was a tie!')
-        print('The final score: Player01 has ' + str(self.p1.score) + ' while Player02 has ' +
-              str(self.p2.score))
+        print('The final score: Player01 has ' + str(self.p1.score)
+              + ' while Player02 has ' + str(self.p2.score))
 # This class will play a single round of RPS
 # A copy of play_game w/o for loop
 
@@ -130,31 +131,31 @@ class Game():
     def play(self, move1, move2):
             print(f"Player01 played {move1}")
             print(f"Player02 played {move2}")
-            
+
             if beats(move1, move2):
-                print ("** YOU WIN ! **")
+                print("** YOU WIN ! **")
                 self.p1.score += 1
                 print(f"Player01 wins this round!")
-                print('The score: Player01 has ' + str(self.p1.score) + ' while Player02 has ' + str(self.p2.score) + '\n')
+                print('The score: Player01 has ' + str(self.p1.score)
+                      + ' while Player02 has ' + str(self.p2.score) + '\n')
                 return 1
-                
-                
+
             elif beats(move2, move1):
-                print ("** YOU LOSE ! **")
+                print("** YOU LOSE ! **")
                 self.p2.score += 1
                 print(f"Player 2 wins this round!")
-                print('The score: Player01 has ' + str(self.p1.score) + ' while Player02 has ' + str(self.p2.score) + '\n')
+                print('The score: Player01 has ' + str(self.p1.score)
+                      + ' while Player02 has ' + str(self.p2.score) + '\n')
                 return 2
 
             else:
-                print ("** It's A TIE **")
-                print('The score: Player01 has ' + str(self.p1.score) + ' while Player02 has ' + str(self.p2.score) + '\n')
-                return 0   
-                
-   
+                print("** It's A TIE **")
+                print('The score: Player01 has ' + str(self.p1.score)
+                      + ' while Player02 has ' + str(self.p2.score) + '\n')
+                return 0
+
+
 # This class calls the beats functions
-
-
 def beats(one, two):
     return ((one == 'rock' and two == 'scissors') or
             (one == 'scissors' and two == 'paper') or
@@ -166,14 +167,14 @@ def beats(one, two):
 if __name__ == '__main__':
     answer = [Player(), RandomPlayer(), Cycles(), ReflectPlayer()]
     p2 = input('Select the RPS game you would like to play or just hit any\
- key and enter for random game: [1]Rock, [2]Random,\
-[3]Reflective, or [4]Cycles: >')
+               key and enter for random game: [1]Rock, [2]Random,\
+               [3]Reflective, or [4]Cycles: >')
 # answer is a player class list
 # p2 is output input from the user
 
-    while p2 != 1 or p2 != 2 or p2 != 3 or p2 != 4:
-        p2 = random.choice(answer)
-        break
+while p2 != 1 or p2 != 2 or p2 != 3 or p2 != 4:
+    p2 = random.choice(answer)
+    break
 # If the entry is not a specific entry then
 # automatically selects a random choice
 
