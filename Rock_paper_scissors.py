@@ -167,8 +167,8 @@ def beats(one, two):
 if __name__ == '__main__':
     answer = [Player(), RandomPlayer(), Cycles(), ReflectPlayer()]
     p2 = input('Select the RPS game you would like to play or just hit any\
-               key and enter for random game: [1]Rock, [2]Random,\
-               [3]Reflective, or [4]Cycles: >')
+        key and enter for random game: [1]Rock, [2]Random,\
+        [3]Reflective, or [4]Cycles: >')
 # answer is a player class list
 # p2 is output input from the user
 
