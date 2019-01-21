@@ -52,8 +52,8 @@ class Cycles(Player):
         self.step = 0
 
     def move(self):
+        throw = None
         while True:
-            throw = None
             if self.step == 0:
                 throw = moves[0]
                 self.step = self.step + 1
@@ -63,7 +63,7 @@ class Cycles(Player):
             else:
                 throw = moves[2]
                 self.step = self.step + 1
-            return throw
+                return throw
 # This Class cycles through the moves list starting at rock
 
 
@@ -167,14 +167,14 @@ def beats(one, two):
 if __name__ == '__main__':
     answer = [Player(), RandomPlayer(), Cycles(), ReflectPlayer()]
     p2 = input('Select the RPS game you would like to play or just hit any\
-        key and enter for random game: [1]Rock, [2]Random,\
-        [3]Reflective, or [4]Cycles: >')
+ key and enter for random game: [1]Rock, [2]Random,\
+[3]Reflective, or [4]Cycles: >')
 # answer is a player class list
 # p2 is output input from the user
 
-while p2 != 1 or p2 != 2 or p2 != 3 or p2 != 4:
-    p2 = random.choice(answer)
-    break
+    while p2 != 1 or p2 != 2 or p2 != 3 or p2 != 4:
+        p2 = random.choice(answer)
+        break
 # If the entry is not a specific entry then
 # automatically selects a random choice
 
