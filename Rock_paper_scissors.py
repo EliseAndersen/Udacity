@@ -52,13 +52,16 @@ class Cycles(Player):
         self.step = 0
 
     def move(self):
-        def move(self):
-            if self.my_move is None:
-                return random.choice(moves)
-            index = moves.index(self.my_move) + 1
-            if index == len(moves):
-                index = 0
-            return moves[index]
+            if self.step == 0:
+                throw = moves[0]
+                self.step = self.step + 1
+            elif self.step == 1:
+                throw = moves[1]
+                self.step = self.step + 1
+            else:
+                throw = moves[2]
+                self.step = self.step + 1
+            return throw
 # This Class cycles through the moves list starting at rock
 
 
